@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary: rgb(176, 146, 81);
+}
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #081b29;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.video-bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+header{
+    top:0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0,0,0,0.7);
+    z-index: 10;
+    position: sticky;
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration:none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo:hover{
+    color: var(--primary);
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav li a{
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.nav li a i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.nav li:hover a{
+    color: var(--primary);
+}
+
+.search{
+        position: relative;
+        width: 220px;
+        height: 35px;
+        margin-left: 20px;
+    }
+
+    .search input:hover{
+        border-color: var(--primary);
+    }
+
+    .search input{
+        position : absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: #ffffff;
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.5);
+        outline: none;
+        border-radius: 4px;
+        padding: 0 10px 0 40px !important;
+        backdrop-filter: blur(10px);
+    }
+
+    .search input::placeholder{
+        color: #ffffff;
+    }
+
+    .search i{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        color: #ffffff;
+    }
+
+.banner{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.banner h1{
+    font-size: 90px;
+    font-weight: 800;
+    transition: 0.5s;
+}
+
+.banner h1:hover{
+   -webkit-text-stroke: 2px #fff; 
+    color: transparent;
+}
+
+button{
+    width: 200px;
+    padding: 15px;
+    margin: 20px 5px;
+    text-align: center;
+    border-radius: 25px;
+    color: black;
+    border: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover{
+    background: linear-gradient(-45deg,rgb(229, 201, 141),#63532c,rgb(229, 201, 141));
+    transition:1.50.5s;
+    color: white;
+    text-transform:uppercase;
+}
+
+section{
+    padding:80px 50px;
+    position: relative;
+    z-index: 1;
+}
+
+#about, #ranking{
+    background:#111;
+}
+
+#about h2, #products h2, #ranking h2, #subscribe h2{
+    font-size:36px; 
+    margin-bottom:40px; 
+    text-align:center;
+}
+
+#about p{
+    font-size:18px; 
+    max-width:800px; 
+    margin:auto; 
+    line-height:1.6; 
+    text-align:center;
+}
+
+#products{
+    background:#081b29;
+    padding: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin-top: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    scrollbar-width: none; 
+}
+
+.product-grid::-webkit-scrollbar {
+    display: none; 
+}
+
+.product-card {
+    background: #1b2a38;
+    width: 250px;  
+    height: 350px;  
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex: 0 0 auto; 
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.product-card img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:0;
+}
+
+.product-card h3{
+    color:white;
+    margin: 320px 0 0 0;
+    z-index: 1;
+    position: relative;
+    font-size:18px;
+    font-weight:600;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 0;
+}
+
+.product-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+#shop-with-me {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.shop-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: black;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-button i {
+    font-size: 60px;
+    margin-bottom: 5px;
+}
+
+.shop-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    color: white;
+}
+
+#subscribe{
+    text-align:center; 
+    background:#081b29;
+}
+
+#subscribe form input{
+    padding:10px; 
+    width:250px; 
+    border-radius:5px; 
+    border:none; 
+    margin-right:10px;
+}
+
+#subscribe form button{
+    padding:10px 20px; 
+    border-radius:5px; 
+    background:var(--primary); 
+    color:black; 
+    border:none; 
+    cursor:pointer;
+}
+
+#subscribe iframe{
+    width:80%; 
+    height:300px;
+    border:0; 
+    border-radius:10px; 
+    margin-top:20px;
+}
+
+footer{
+    padding:40px 50px; 
+    background:#111; 
+    text-align:center;
+}
+
+footer i{
+    margin:0 10px;
+    font-size:24px;
+    color:var(--primary); 
+    cursor:pointer;
+}
+
+footer p{
+    margin-top:20px; 
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+<video autoplay muted loop class="video-bg"> 
+    <source src="explore1.mp4" type="video/mp4">
+</video>
+
+<header>
+  <a href="#" class="logo">Meet your Stylist</a>
+  <div class="nav">
+    <ul class="nav">
+      <li><a href="fashionwebpage.html"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="loginwebsite.html"><i class="fa fa-user-plus"></i> Sign up</a></li>
+      <li><a href="#about"><i class="fa fa-info-circle"></i> About</a></li>
+      <li><a href="#subscribe"><i class="fa fa-envelope"></i>Contact</a></li>
+    </ul>
+
+    <div class="search">
+      <input type="text" placeholder="Search">
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+</header>
+
+<div class="banner">
+    <h1>Explore Your Style</h1>
+    <button type="button">Explore</button>
+</div>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+      Fashion Couture is your ultimate destination to explore and define your style. 
+      From trendy streetwear to elegant formalwear, we bring you curated collections 
+      that inspire confidence and creativity.
+    </p>
+</section>
+
+<section id="products">
+  <h2>Our Main Collection</h2>
+  <div class="product-grid">
+      <div class="product-card">
+        <img src="casual.jpg" alt="Causual(Women)">
+        <h3>Causual(Women)</h3>
+      </div>
+      <div class="product-card">
+        <img src="causual_men.jpg" alt="Causual(Men)">
+        <h3>Causual(Men)</h3>
+      </div>
+      <div class="product-card">
+        <img src="classic.jpg" alt="Classic(Women)">
+        <h3>Classic(Women)</h3>
+      </div>
+      <div class="product-card">
+        <img src="classic_man(1).jpg" alt="Classic(Men)">
+        <h3>Classic(Men)</h3>
+      </div>
+      <div class="product-card">
+        <img src="cottagecore.jpg" alt="cottagecore(Women)">
+        <h3>cottagecore</h3>
+      </div>
+      <div class="product-card">
+        <img src="cottagecore_men.jpg" alt="cottagecore(Men)">
+        <h3>cottagecore</h3>
+      </div>
+      <div class="product-card">
+        <img src="dress10.jpg" alt="Dress(Women)">
+        <h3>Dress(Women)</h3>
+      </div>
+      <div class="product-card">
+        <img src="suit.jpg" alt="Suit(Men)">
+        <h3>Suit(Men)</h3>
+      </div>
+      <div class="product-card">
+        <img src="rebellious.jpg" alt="rebellious(Women)">
+        <h3>Rebellious(Women)</h3>
+      </div>
+      <div class="product-card">
+        <img src="rebellious_men.jpg" alt="rebellious(Men)">
+        <h3>Rebellious(Men)</h3>
+      </div>
+      <div class="product-card">
+        <img src="streetwear.jpg" alt="Streetwear(Women)">
+        <h3>Streetwear(Women)</h3>
+      </div>
+      <div class="product-card">
+        <img src="streetwear_men.jpg" alt="Streetwear(Men)">
+        <h3>Streetwear(Men)</h3>
+      </div>
+    </div>
+</section>
+
+<section id="shop-with-me">
+  <a href="Audery_shop.html" class="shop-button">
+    <i class="fa fa-shopping-bag"></i>
+    <span>Shop With Me</span>
+  </a>
+</section>
+
+<section id="subscribe">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Subscribe</button>
+    </form>
+    <h3>Find Us Here</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29600.812064102684!2d96.06029607431635!3d21.969066899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d0ec633373d%3A0x6d72443aa07efbda!2sMJ%20Fashion%20Shop!5e0!3m2!1sen!2smm!4v1755538203865!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <footer>
+    <div>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Fashion Couture. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
+

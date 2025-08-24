@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place Your Order</title>
+
+<style>
+:root {
+  --primary: rgb(176, 146, 81);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  height: 100vh;
+  background: #081b29;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* .overlay {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+} */
+
+.order-container {
+  background: rgba(27, 42, 56, 0.95);
+  padding: 50px 40px;
+  border-radius: 20px;
+  width: 450px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  border: 2px solid var(--primary);
+}
+
+.order-container h2 {
+  margin-bottom: 25px;
+  color: var(--primary);
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.order-container label {
+  display: block;
+  text-align: left;
+  margin: 15px 0 8px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.order-container input,
+.order-container select,
+.order-container textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.order-container input:focus,
+.order-container select:focus,
+.order-container textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+}
+
+.order-container select:focus{
+    color: black;
+}
+
+.order-container button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  background: var(--primary);
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.order-container a{
+    text-decoration: none;
+    color:black;
+}
+
+.order-container a:hover{
+    color: #081b29;
+}
+
+.order-container button:hover {
+  background: linear-gradient(-45deg, #fff, var(--primary));
+  color: black;
+  box-shadow: 0 0 25px var(--primary);
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop class="video-bg">
+  <source src="explore1.mp4" type="video/mp4">
+</video>
+<!-- <div class="overlay"></div> -->
+
+<div class="order-container">
+  <h2>Place Order</h2>
+  <form action="payment.html">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="text">Shop name</label>
+    <input type="email" id="email" required>
+
+    <label for="product">Product</label>
+    <select id="product" required>
+      <option value="">-- Select Item --</option>
+      <option>Dress</option>
+      <option>Shoes</option>
+      <option>Handbag</option>
+      <option>Jewellery</option>
+    </select>
+
+    <label for="qty">Quantity</label>
+    <input type="number" id="qty" min="1" required>
+
+    <label for="address">Delivery Address</label>
+    <textarea id="address" rows="3" required></textarea>
+
+    <button type="submit"><a href="payment.html">Proceed to Payment</a></button>
+  </form>
+</div>
+
+</body>
+</html>

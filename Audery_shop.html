@@ -1,0 +1,270 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audery.com - Shop</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary: rgb(176, 146, 81);
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #081b29;
+    color: #fff;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0,0,0,0.8);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: rgba(0,0,0,0.7);
+      min-width: 160px;
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgb(176, 146, 81,0.7);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.collection-cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.collection-card {
+    width: 300px;
+    height: 500px;
+    background: #1b2a38;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: block;      
+    text-decoration: none; 
+    color: white;  
+}
+
+.collection-card img {
+    width: 100%;
+    height: 91%;
+    object-fit: cover;
+}
+
+.collection-card h3 {
+    font-size: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 15px 0;
+}
+
+.collection-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+#ranking {
+    background:#111;
+    padding:80px 50px;
+}
+
+#ranking h2 {
+    font-size:36px;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+#ranking table{
+    width:80%; 
+    margin:auto; 
+    border-collapse:collapse; 
+    color:white;
+}
+
+#ranking th, #ranking td{
+    padding:10px; 
+    border-bottom:2px solid var(--primary); 
+    text-align:center;
+}
+
+footer {
+    padding: 40px 50px;
+    background: #111;
+    text-align: center;
+}
+
+footer i {
+    margin: 0 10px;
+    font-size: 24px;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+
+<header>
+    <a href="#" class="logo">Audery.com</a>
+      <div class="dropdown">
+        <i class="fa fa-bars"></i>
+        <div class="dropdown-content">
+          <a href="#"><i class="fa fa-user"></i> My Account</a>
+          <hr>
+          <a href="#"><i class="fa fa-history"></i> History</a>
+          <a href="#"><i class="fa fa-save"></i> Save</a>
+          <a href="#"><i class="fa fa-heart"></i> Love</a>
+          <hr>
+          <a href="#"><i class="fa fa-sign-out"></i> Sign Out</a>
+        </div>
+    </div>
+</header>
+
+
+<section id="main-collection">
+    <h2>Main Collection</h2>
+    <div class="collection-cards">
+        <a href="Women's_collection.html" class="collection-card">
+            <img src="women.jpg" alt="Women's Collection">
+            <h3>Women's Collection</h3>
+        </a>
+        <a href="Men's_collection.html" class="collection-card">
+            <img src="man.jpg" alt="Men's Collection">
+            <h3>Men's Collection</h3>
+        </a>
+    </div>
+</section>
+
+<section id="ranking">
+    <h2>Men's Top Rated Items</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Men Suit</td>
+          <td>$3000</td>
+          <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Cottagecore Wear</td>
+          <td>$2800</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Streetwear Set</td>
+          <td>$2500</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+</section>
+
+<section id="ranking">
+    <h2>Women's Top Rated Items</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Wedding Dress</td>
+          <td>$3500</td>
+          <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Classic Outfit</td>
+          <td>$2500</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Rebellious Jacket</td>
+          <td>$2000</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+</section>
+
+
+<footer>
+    <div>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2025 Audery.com. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
